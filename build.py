@@ -94,6 +94,23 @@ def linked_names(credit, prefix):
     return out + escape(credit[pos:])
 
 
+# --- shared chrome --------------------------------------------------------
+
+def head_links(prefix):
+    """Stylesheets + favicon; prefix is the path from the page to 1000/."""
+    return (f'<link rel="stylesheet" href="{prefix}../site.css">\n'
+            f'<link rel="stylesheet" href="{prefix}style.css">\n'
+            f'<link rel="icon" href="{prefix}../favicon.png">')
+
+
+def masthead(prefix):
+    return (f'<header class="masthead">\n'
+            f'<a class="name" href="{prefix}../">Jonah Dragan</a>\n'
+            f'<span class="site-links"><a href="{prefix}index.html">1000 Picture Books</a> '
+            f'<a href="{prefix}people.html">Authors &amp; Illustrators</a></span>\n'
+            f'</header>')
+
+
 # --- post pages -----------------------------------------------------------
 
 def page_title(p):
@@ -141,10 +158,10 @@ def render_post(p, total):
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{page_title(p)}</title>
-<link rel="stylesheet" href="../style.css">
-<link rel="icon" href="../../favicon.png">
+{head_links('../')}
 </head>
 <body>
+{masthead('../')}
 <div class="layout">
 <div class="images">
 {imgs}
@@ -198,26 +215,27 @@ def render_index(posts):
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{SITE}</title>
-<link rel="stylesheet" href="style.css">
-<link rel="icon" href="../favicon.png">
+{head_links('')}
 </head>
 <body>
-<header>
-<p class="home"><a href="../">&larr; Jonah Dragan</a></p>
-<h1><a href="index.html">{SITE}</a></h1>
-<p>1000 days. 1000 books. An archive of @jonahdragan on Instagram, July 2020 &ndash; April 2023.</p>
-<p><a href="people.html">Browse by author &amp; illustrator</a></p>
-<div class="search"><input id="q" type="search" placeholder="Search titles, authors, captions&hellip;" autocomplete="off"></div>
+{masthead('')}
+<div class="intro">
+<p class="eyebrow">The project</p>
+<h1>1000 Picture Books</h1>
+<p class="meta">On <a href="https://www.instagram.com/jonahdragan/">Instagram</a>, July 31, 2020 &ndash; April 28, 2023</p>
+<div class="controls">
+<div class="search"><input id="q" type="search" placeholder="Search titles, authors, captions&hellip;" autocomplete="off" aria-label="Search"></div>
 <div class="views" role="group" aria-label="Layout">
 <button type="button" data-view="grid" aria-pressed="true">Grid</button>
 <button type="button" data-view="list" aria-pressed="false">List</button>
 </div>
+</div>
 <p id="count"></p>
-</header>
+</div>
 <div class="grid">
 {cells}
 </div>
-<footer>{len(posts)} posts &middot; built from an Instagram export</footer>
+<footer>{len(posts)} posts by <a href="../">Jonah Dragan</a></footer>
 <script src="search.js"></script>
 </body>
 </html>
@@ -265,19 +283,20 @@ def render_people(posts):
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Authors &amp; Illustrators &mdash; {SITE}</title>
-<link rel="stylesheet" href="style.css">
-<link rel="icon" href="../favicon.png">
+{head_links('')}
 </head>
 <body>
-<header>
-<h1><a href="index.html">{SITE}</a></h1>
-<p>{len(people)} authors &amp; illustrators, A&ndash;Z by surname.</p>
+{masthead('')}
+<div class="intro">
+<p class="eyebrow">1000 Picture Books</p>
+<h1>Authors &amp; Illustrators</h1>
+<p class="meta">{len(people)} authors &amp; illustrators, A&ndash;Z by surname.</p>
 <p class="letters">{letters}</p>
-</header>
+</div>
 <main class="people">
 {chr(10).join(sections)}
 </main>
-<footer><a href="index.html">&larr; back to the index</a></footer>
+<footer><a href="index.html">&larr; All 1000 books</a></footer>
 </body>
 </html>
 '''

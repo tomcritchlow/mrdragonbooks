@@ -4,22 +4,28 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Jonah's 1000 Picture Books</title>
+<link rel="stylesheet" href="../site.css">
 <link rel="stylesheet" href="style.css">
 <link rel="icon" href="../favicon.png">
 </head>
 <body>
-<header>
-<p class="home"><a href="../">&larr; Jonah Dragan</a></p>
-<h1><a href="index.html">Jonah's 1000 Picture Books</a></h1>
-<p>1000 days. 1000 books. An archive of @jonahdragan on Instagram, July 2020 &ndash; April 2023.</p>
-<p><a href="people.html">Browse by author &amp; illustrator</a></p>
-<div class="search"><input id="q" type="search" placeholder="Search titles, authors, captions&hellip;" autocomplete="off"></div>
+<header class="masthead">
+<a class="name" href="../">Jonah Dragan</a>
+<span class="site-links"><a href="index.html">1000 Picture Books</a> <a href="people.html">Authors &amp; Illustrators</a></span>
+</header>
+<div class="intro">
+<p class="eyebrow">The project</p>
+<h1>1000 Picture Books</h1>
+<p class="meta">On <a href="https://www.instagram.com/jonahdragan/">Instagram</a>, July 31, 2020 &ndash; April 28, 2023</p>
+<div class="controls">
+<div class="search"><input id="q" type="search" placeholder="Search titles, authors, captions&hellip;" autocomplete="off" aria-label="Search"></div>
 <div class="views" role="group" aria-label="Layout">
 <button type="button" data-view="grid" aria-pressed="true">Grid</button>
 <button type="button" data-view="list" aria-pressed="false">List</button>
 </div>
+</div>
 <p id="count"></p>
-</header>
+</div>
 <div class="grid">
 <a href="posts/0001.html" id="p0001"><img src="media/thumb/17902866196502483.webp" width="300" height="300" alt="" loading="lazy"><span class="label"><span class="d">#1 · Jul 31, 2020</span></span></a>
 <a href="posts/0002.html" id="p0002"><img src="media/thumb/17902699651509830.webp" width="300" height="300" alt="" loading="lazy"><span class="label"><span class="t">Swan Lake</span><span class="b">Margot Fonteyn · illus. Trina Schart Hyman</span><span class="d">#2 · Aug 2, 2020</span></span></a>
@@ -1023,7 +1029,7 @@
 <a href="posts/1000.html" id="p1000"><img src="media/thumb/18119348023306710.webp" width="300" height="300" alt="" loading="lazy"><span class="label"><span class="t">How to Live Forever</span><span class="b">Colin Thompson</span><span class="d">#1000 · Apr 27, 2023</span></span></a>
 <a href="posts/1001.html" id="p1001"><img src="media/thumb/17954598446389743.webp" width="300" height="300" alt="" loading="lazy"><span class="label"><span class="t">Tintinnabula</span><span class="b">Margo Lanagan · illus. Rovina Cai</span><span class="d">#1001 · Apr 28, 2023</span></span></a>
 </div>
-<footer>1001 posts &middot; built from an Instagram export</footer>
+<footer>1001 posts by <a href="../">Jonah Dragan</a></footer>
 <script src="search.js"></script>
 </body>
 </html>

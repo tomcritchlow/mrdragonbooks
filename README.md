@@ -4,6 +4,10 @@ Jonah Dragan's website: **https://mrdragonbooks.com/**
 
 - `/` is the homepage, hand-written in `index.html` (plus `jonah.webp`
   and the favicons). The cover strip links to eight posts in the archive.
+  Homepage copy is Jonah's own words: the About text is verbatim from his
+  old jonahdragan.com, so don't rewrite it.
+- `site.css` holds the shared colours, type and base styles for both
+  the homepage and the archive.
 - `/1000/` is the archive of [@jonahdragan](https://www.instagram.com/jonahdragan/)'s
   Instagram project, 1,000 picture book reviews in 1,000 days (July 2020 –
   April 2023). It was originally generated from an Instagram data export:

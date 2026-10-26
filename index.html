@@ -3,31 +3,15 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Jonah Dragan &mdash; author &amp; storyteller</title>
-<meta name="description" content="Jonah Dragan is a Brooklyn author, early childhood educator and storyteller. Home of the 1000 Picture Books project.">
+<title>Jonah Dragan &ndash; Author, Storyteller, and Entertainer</title>
+<meta name="description" content="Author, Storyteller, and Entertainer">
 <meta property="og:title" content="Jonah Dragan">
-<meta property="og:description" content="Author, early childhood educator and storyteller. Home of the 1000 Picture Books project.">
+<meta property="og:description" content="Author, Storyteller, and Entertainer">
 <meta property="og:image" content="https://mrdragonbooks.com/jonah.webp">
 <link rel="icon" href="favicon.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="stylesheet" href="site.css">
 <style>
-* { box-sizing: border-box; }
-:root {
-  --ink: #1f1b18;
-  --muted: #6b635c;
-  --paper: #fbf8f3;
-  --rule: #e4ddd2;
-  --red: #8f0000;
-}
-body {
-  margin: 0;
-  background: var(--paper);
-  color: var(--ink);
-  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
-  font-size: 1.125rem;
-  line-height: 1.6;
-}
-a { color: var(--red); text-underline-offset: 0.15em; }
 main { max-width: 42rem; margin: 0 auto; padding: 3rem 1rem 2rem; }
 header { margin-bottom: 2rem; }
 h1 {
@@ -61,6 +45,7 @@ p { margin: 0 0 1rem; }
 .covers img {
   display: block;
   width: 100%;
+  height: auto;
   aspect-ratio: 1;
   object-fit: cover;
   background: var(--rule);
@@ -68,6 +53,16 @@ p { margin: 0 0 1rem; }
 }
 .covers a:hover img { opacity: 0.85; }
 .cta { font-weight: 600; }
+.meta { margin: 0 0 1rem; color: var(--muted); font-size: 0.95rem; }
+.spaced { margin-top: 2rem; }
+blockquote {
+  margin: 0 0 1rem;
+  padding: 0 0 0 1rem;
+  border-left: 3px solid var(--rule);
+  font-style: italic;
+}
+.video { position: relative; aspect-ratio: 16 / 9; background: var(--rule); }
+.video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
 .links { list-style: none; margin: 0; padding: 0; }
 .links li { margin: 0 0 0.25rem; }
 footer {
@@ -83,21 +78,39 @@ footer {
 <main>
 <header>
 <h1>Jonah Dragan</h1>
-<p class="tagline">Author, storyteller, and keeper of a very large picture book collection</p>
+<p class="tagline">Author, Storyteller, and Entertainer</p>
 </header>
 
 <img class="portrait" src="jonah.webp" width="1400" height="909" alt="Jonah Dragan in front of shelves of picture books">
 
 <section id="about">
 <h2>About</h2>
-<p>Jonah Dragan is an author, early childhood educator and professional storyteller who has been writing for most of his life. His stories are full of fantastical settings and unusual characters with relatable, human feelings. To his preschool students, he is Mr.&nbsp;Dragan.</p>
-<p>Jonah is a member of the Society of Children&rsquo;s Book Writers and Illustrators and sits on the Bank Street Children&rsquo;s Book Committee. He lives in Brooklyn with his husband and a great many books.</p>
+<p>Jonah Dragan, an author, early childhood educator, and professional storyteller, has been writing in one form or another for as long as he can remember. In lyrical prose and flowing verse, he spins tales of marvelously eldritch places. His characters come in all manner of wild shapes and sizes, but look closer and you&rsquo;ll find human hearts beating within.</p>
+<p>Affectionately known to his preschool students as &ldquo;Mr. Dragan&rdquo; (yes, pronounced just like the fire-breathing lizard), Jonah lives in Brooklyn, New York with one husband and over one thousand picture books. He is a member of the Society for Children&rsquo;s Book Writers and Illustrators, and sits on the Bank Street Children&rsquo;s Book Committee. He has several completed picture book manuscripts, available upon request, and is currently seeking representation.</p>
+</section>
+
+<section id="storytelling">
+<h2>Storytelling</h2>
+<h3><a href="https://podcasts.apple.com/us/podcast/adams-sneak-peeks-tatterhood/id1436651521?i=1000793735016">Tatterhood</a></h3>
+<p class="meta">Grimm, Grimmer, Grimmest &middot; Adam&rsquo;s Sneak Peeks &middot; October 7, 2026</p>
+<blockquote>
+<p>Adam and Jonah Dragan bring you magical adaptation of this Norse folktale. A king and queen wish for a child and receive a very unexpected surprise. As the years pass, one unusual princess proves that being different can be a powerful strength.</p>
+</blockquote>
+<p><a href="https://podcasts.apple.com/us/podcast/adams-sneak-peeks-tatterhood/id1436651521?i=1000793735016">Listen on Apple Podcasts &rarr;</a></p>
+
+<h3 class="spaced">Jonah&rsquo;s retelling of a Norwegian folktale&hellip;</h3>
+<div class="video">
+<iframe src="https://www.youtube-nocookie.com/embed/uS1Y59ONe4M" title="East of the Sun and West of the Moon" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
 </section>
 
 <section id="books">
 <h2>The project</h2>
 <h3><a href="1000/">1000 Picture Books</a></h3>
-<p>From July 2020 to April 2023, Jonah reviewed one picture book a day on Instagram: a thousand books in a thousand days. The full archive lives here, and you can search it by title, author or illustrator.</p>
+<p class="meta">On Instagram, July 31, 2020 &ndash; April 28, 2023</p>
+<blockquote>
+<p>One thousand days. One thousand books. I cannot thank you enough for reading along with me.</p>
+</blockquote>
 <div class="covers">
 <a href="1000/posts/0665.html" title="Dragon"><img src="1000/media/thumb/18238772650104363.webp" width="300" height="300" alt="Dragon" loading="lazy"></a>
 <a href="1000/posts/0410.html" title="The Pied Piper of Hamelin"><img src="1000/media/thumb/18184321822122966.webp" width="300" height="300" alt="The Pied Piper of Hamelin" loading="lazy"></a>
@@ -113,7 +126,6 @@ footer {
 
 <section id="contact">
 <h2>Contact</h2>
-<p>Jonah has several picture book manuscripts available on request.</p>
 <ul class="links">
 <li><a href="mailto:jonah.dragan@gmail.com">jonah.dragan@gmail.com</a></li>
 <li><a href="https://www.instagram.com/jonahdragan/">Instagram</a></li>
