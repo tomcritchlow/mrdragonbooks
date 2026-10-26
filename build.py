@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
 """Build the static site from data/posts.json.
 
-Writes index.html, people.html, posts/*.html, search-data.js and grid
-thumbnails in media/thumb/ (only the missing ones). Requires Pillow.
+The archive lives under 1000/ (mrdragonbooks.com/1000/); the homepage at
+the repo root is hand-written. Writes 1000/index.html, 1000/people.html,
+1000/posts/*.html, 1000/search-data.js and grid thumbnails in
+1000/media/thumb/ (only the missing ones). Requires Pillow.
 """
 import json
 import re
@@ -15,6 +17,7 @@ from pathlib import Path
 from PIL import Image
 
 ROOT = Path(__file__).resolve().parent
+OUT = ROOT / '1000'
 SITE = "Jonah's 1000 Picture Books"
 IMG_SIZE = 900    # every media/*.webp is 900x900
 THUMB_SIZE = 300  # grid cells are ~140px wide, so this covers 2x displays
@@ -139,6 +142,7 @@ def render_post(p, total):
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{page_title(p)}</title>
 <link rel="stylesheet" href="../style.css">
+<link rel="icon" href="../../favicon.png">
 </head>
 <body>
 <div class="layout">
@@ -195,9 +199,11 @@ def render_index(posts):
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{SITE}</title>
 <link rel="stylesheet" href="style.css">
+<link rel="icon" href="../favicon.png">
 </head>
 <body>
 <header>
+<p class="home"><a href="../">&larr; Jonah Dragan</a></p>
 <h1><a href="index.html">{SITE}</a></h1>
 <p>1000 days. 1000 books. An archive of @jonahdragan on Instagram, July 2020 &ndash; April 2023.</p>
 <p><a href="people.html">Browse by author &amp; illustrator</a></p>
@@ -260,6 +266,7 @@ def render_people(posts):
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Authors &amp; Illustrators &mdash; {SITE}</title>
 <link rel="stylesheet" href="style.css">
+<link rel="icon" href="../favicon.png">
 </head>
 <body>
 <header>
@@ -314,14 +321,14 @@ def compact(text):
 # --- thumbnails -----------------------------------------------------------
 
 def make_thumbs(posts):
-    out_dir = ROOT / 'media' / 'thumb'
+    out_dir = OUT / 'media' / 'thumb'
     out_dir.mkdir(exist_ok=True)
     made = 0
     for p in posts:
         dest = out_dir / f'{p["images"][0]}.webp'
         if dest.exists():
             continue
-        with Image.open(ROOT / 'media' / f'{p["images"][0]}.webp') as im:
+        with Image.open(OUT / 'media' / f'{p["images"][0]}.webp') as im:
             im.convert('RGB').resize((THUMB_SIZE, THUMB_SIZE), Image.LANCZOS).save(
                 dest, 'WEBP', quality=72, method=6)
         made += 1
@@ -333,11 +340,11 @@ def main():
     total = len(posts)
     made = make_thumbs(posts)
     for p in posts:
-        (ROOT / 'posts' / f'{slug(p["n"])}.html').write_text(render_post(p, total))
-    (ROOT / 'index.html').write_text(render_index(posts))
-    (ROOT / 'people.html').write_text(render_people(posts))
+        (OUT / 'posts' / f'{slug(p["n"])}.html').write_text(render_post(p, total))
+    (OUT / 'index.html').write_text(render_index(posts))
+    (OUT / 'people.html').write_text(render_people(posts))
     index = json.dumps(search_entries(posts), ensure_ascii=False)
-    (ROOT / 'search-data.js').write_text(f'window.SEARCH_INDEX = {index};\n')
+    (OUT / 'search-data.js').write_text(f'window.SEARCH_INDEX = {index};\n')
     print(f'built {total} posts, {made} new thumbnails')
 
 

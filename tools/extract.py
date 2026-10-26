@@ -2,7 +2,7 @@
 """One-off: recover structured post data from the generated HTML archive.
 
 The original build ran off an Instagram export that isn't in this repo.
-This script reads posts/*.html and writes data/posts.json, which build.py
+This script reads 1000/posts/*.html and writes data/posts.json, which build.py
 then treats as the source of truth.
 """
 import html
@@ -20,7 +20,7 @@ def field(pattern, text):
 
 def main():
     posts = []
-    for path in sorted((ROOT / 'posts').glob('*.html')):
+    for path in sorted((ROOT / '1000' / 'posts').glob('*.html')):
         page = path.read_text()
         n = int(path.stem)
         post = {
